@@ -3,6 +3,7 @@
 
     for (article of articles){
         displayArticle(articles)
+        console.log(article)
     }
 })()
 
@@ -26,10 +27,12 @@ function displayArticle(){
         <div class="card">
             <img src="${article.imageUrl}">
             <div class="card-body">
-                <h5 class="card-title"><a href="product.html?idourson">Ours en peluche - ${article.name} </a> </h5>
+                <h5 class="card-title"><a href="product.html?id=${article._id}">Ours en peluche - ${article.name} </a> </h5>
                 <p class="card-text text-truncate">${article.description}</p>
-                <span class="h5">${article.price}€</span>
+                <span class="h5">${article.price / 100}€</span>
             </div>
         </div>
     </div>`
 }
+
+

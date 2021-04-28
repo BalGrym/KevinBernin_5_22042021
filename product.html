@@ -21,7 +21,7 @@
                         </button>
                         <div id="navbarContent" class="collapse navbar-collapse">
                             <ul class="navbar-nav">
-                                <li class="nav-item active">
+                                <li class="nav-item ">
                                     <a class="nav-link" href="index.html">Accueil</a>
                                 </li>
                                 <li class="nav-item">
@@ -35,8 +35,28 @@
         </header>
 
         <main class="container my-5">
-            <div class="row d-flex justify-content-center" id="listing_article">
-                               
+            <div class="row" id="target_article">
+                
+                 <!-- <div class="col d-flex flex-column flex-md-row" id="">
+                    <img src="${article.imageUrl}">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="product.html?id=${article._id}">Ours en peluche - ${article.name} </a> </h5>
+                            <p class="card-text text-truncate">${article.description}</p>
+                            <span class="h5">${article.price / 100}€</span>
+                            <div>
+                                <label for="color">Couleurs</label>
+                                <select class="form-select" aria-label="Default select example" name="color" id="color">
+                                    <option value="1">${article.color[0]}</option>
+                                    <option value="2">${article.color[1]}</option>
+                                    <option value="3">${article.color[2]}</option>
+                                    <option value="4">${article.color[3]}</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-primary">Ajoutez à votre panier</button>
+                        </div>
+                    </div>
+                </div>  -->
             </div>
         </main>
 
@@ -64,6 +84,6 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="/home.js"></script>
+        <script src="/product.js"></script>
     </body>
 </html>
