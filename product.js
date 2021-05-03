@@ -43,7 +43,7 @@ function getArticles(){
 function displayTargetedArticle(articles) {
     document.getElementById('target_article').innerHTML += `
     <div class="col d-flex flex-column flex-md-row" id="">
-        <img src="${articles.imageUrl}" class="w-50">
+        <img src="${articles.imageUrl}" class="card-img-size">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title"><a href="product.html?id=">Ours en peluche - ${articles.name} </a> </h5>
