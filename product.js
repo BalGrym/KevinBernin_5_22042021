@@ -15,11 +15,62 @@ function getArticle(){
         .then(function(article){
             // console.log(article) 
             displayTargetedArticle(article);
+
+
+            var test = document.getElementById('buttonShopping');
+            test.addEventListener('click', () => {
+                getLocalStorageQuantity();
+                setLocalStorage(article);
+            });
         })
         .catch(function(err){
             alert(err)
         })
 }
+
+
+function getLocalStorageQuantity(){
+    let productQuantity = localStorage.getItem('quantity');
+
+    productQuantity = parseInt(productQuantity);
+
+    if (productQuantity ){
+        localStorage.setItem('quantity', productQuantity + 1);
+    }else {
+        localStorage.setItem('quantity', 1);
+    }
+
+}
+
+function setLocalStorage(article){
+    let  cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
+    
+    
+    if(cartItems != null){
+
+        if(cartItems[article.name] == undefined) {
+            cartItems = {
+                ...cartItems,
+                [article.name]: article
+            }
+        }
+
+        if(cartItems[article.name].quantity == null){
+            cartItems[article.name].quantity = 1;
+        }else{
+            cartItems[article.name].quantity += 1;
+        }
+        
+    } else {
+        cartItems = {
+        [article.name]: article
+        }
+        cartItems[article.name].quantity = 1;
+    }
+    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+}
+
 
 //implémente le produit cliqué en fonction de l'ID en HTML
 function displayTargetedArticle(article) {
@@ -49,12 +100,4 @@ function displayTargetedArticle(article) {
     });
 }
 
-getArticle()
-    
-var test = document.getElementById('test');
-
-test.addEventListener('click', sayHello);
-
-function sayHello(){
-  console.log('hello');
-}
+getArticle();

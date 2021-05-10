@@ -37,47 +37,13 @@
         </header>
 
         <main class="container my-5 ">
-            <div class="row d-flex flex-column" id="">
-                <div class="col">
-                    <div class="card mb-3 d-flex flex-md-row">
-                        <img class="card-img-size" src="/img/teddy_1.jpg">
-                        <div class="card-body">
-                            <div class="d-flex row-md justify-content-between">
-                                <h5 class="card-title">Ours en peluche - Norbert</h5>
-                                <button type="button" class="btn btn-danger">Supprimer</button>
-                            </div>
-                            <p class="card-text">Quantité : 1</p>
-                            <div class="d-flex flex-row">
-                                <p class="card-text me-4">Prix Unitaire : 35€</p>
-                                <p class="card-text">Prix Total : 35€</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card mb-1 d-flex flex-md-row">
-                        <img class="card-img-size" src="/img/teddy_1.jpg">
-                        <div class="card-body">
-                            <div class="d-flex row-md justify-content-between">
-                                <h5 class="card-title">Ours en peluche - Norbert</h5>
-                                <button type="button" class="btn btn-danger">Supprimer</button>
-                            </div>
-                            <p class="card-text">Quantité : 1</p>
-                            <div class="d-flex flex-row">
-                                <p class="card-text me-4">Prix Unitaire : 35€</p>
-                                <p class="card-text">Prix Total : 35€</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
+            <div class="row d-flex flex-column" id="cartContainer">
+                <!-- HTML écrit avec JS -->
             </div>
 
             <div class="row">
                 <div class="col d-flex justify-content-end">
-                    <p class="fs-5">Prix total de votre commande : <strong>X €</strong></p>
+                    <p class="fs-5">Prix total de votre commande : <strong id="totalCost">X €</strong></p>
                 </div>
             </div>
             
@@ -156,6 +122,6 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="/product.js"></script>
+        <script src="/panier.js"></script>
     </body>
 </html>
