@@ -12,7 +12,7 @@ function displayCart (){
                         <div class="card-body">
                             <div class="d-flex row-md justify-content-between">
                                 <h5 class="card-title">Ours en peluche - ${item.name}</h5>
-                                <button type="button" class="btn btn-danger">Supprimer</button>
+                                <button type="button" class="btn btn-danger" onclick="remove()">Supprimer</button>
                             </div>
                             <p class="card-text">Quantité : <input type"number" min="1" max="10" value=" ${item.quantity}" ></p>
                             <div class="d-flex flex-row">
@@ -26,29 +26,32 @@ function displayCart (){
         })
     }
 
-    let buttonDel = document.getElementsByClassName('btn-danger');
-    for (let i = 0; i < buttonDel.length; i++){
-        let button = buttonDel[i]
-        button.addEventListener('click', function() {
+    // let buttonDel = document.getElementsByClassName('btn-danger');
+    // for (let i = 0; i < buttonDel.length; i++){
+    //     let button = buttonDel[i]
+    //     button.addEventListener('click', function() {
             
-            let selectedLocalStorage = localStorage.getItem('productsInCart');
-            selectedLocalStorage = JSON.parse(selectedLocalStorage);
+    //         let selectedLocalStorage = localStorage.getItem('productsInCart');
+    //         selectedLocalStorage = JSON.parse(selectedLocalStorage);
 
-            Object.values(selectedLocalStorage).map(item => {
-                console.log(item)
-                if(item.quantity > 1 ){
-                    item.quantity -= 1;
-                    console.log(item.quantity)
-                }else{
-                    delete(item)
-                }
-                localStorage.setItem("productsInCart", JSON.stringify(selectedLocalStorage));
-            })
-        })
-    }
+    //         Object.values(selectedLocalStorage).map(item => {
+    //             console.log(selectedLocalStorage)
+    //             if(item.quantity > 1 ){
+    //                 item.quantity -= 1;
+    //                 console.log(item.quantity)
+    //                 localStorage.setItem("productsInCart", JSON.stringify(selectedLocalStorage));
+    //             }else{
+    //                 localStorage.setItem("productsInCart", JSON.stringify(selectedLocalStorage));
+    //                 localStorage.removeItem('productsInCart')
+    //             }
+    //         })
+    //     })
+    // }
     
 }
     
-
+function remove(){
+    console.log('gel')
+}
 
 displayCart();
