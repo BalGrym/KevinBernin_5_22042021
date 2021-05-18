@@ -87,7 +87,7 @@ function remove(){
 const myForm = document.getElementById('myForm');
 
 myForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+    
 
     //Recupère tout les ID qui se trouvent dans articleInCart 
     let products = articleInCart.map(product => product._id);
@@ -111,16 +111,17 @@ myForm.addEventListener('submit', function(e) {
     }).then (function (response) {
         return response.text();
     }).then(function (text) {
-        finalPage()
-        console.log(text);
+        finalPage(text)
     }).catch(function (error) {
-        // e.preventDefault();
+        e.preventDefault();
         console.error(error);
     })
 });
 
-function finalPage() {
+function finalPage(text) {
     console.log("salut")
+    let getServerResponse = JSON.parse(text)
+    let orderId = localStorage.setItem('orderId', getServerResponse.orderId)
     window.location = "/validation.html";
 };
 
