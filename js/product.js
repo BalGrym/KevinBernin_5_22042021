@@ -22,7 +22,6 @@ function getArticle(){
         .then(function(article){
             displayTargetedArticle(article);
 
-
             var test = document.getElementById('buttonShopping');
             test.addEventListener('click', () => {
                 addToCart(article);
@@ -66,8 +65,8 @@ const addToCart = (article) => {
 //implémente le produit cliqué en fonction de l'ID en HTML
 function displayTargetedArticle(article) {
     document.getElementById('target_article').innerHTML += `
-    <div class="col d-flex flex-column flex-md-row" id="">
-        <img src="${article.imageUrl}" class="card-img-size">
+    <div class="col d-flex flex-column flex-lg-row" id="">
+        <img src="${article.imageUrl}" class="image-product">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Ours en peluche - ${article.name} </h5>

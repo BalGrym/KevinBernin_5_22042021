@@ -13,7 +13,7 @@ function displayCart (){
                         <div class="card-body">
                             <div class="d-flex row-md justify-content-between">
                                 <h5 class="card-title">Ours en peluche - ${item.name}</h5>
-                                <button type="button" class="btn btn-danger"  onclick="remove()">Supprimer</button>
+                                <button type="button" class="btn btn-danger"  onclick="remove('${item.name}')">Supprimer</button>
                             </div>
                             <p class="card-text">Quantité : <input class="cart-quantity-input" type="number" value="${item.quantity}"></p>
                             <div class="d-flex flex-row">
@@ -25,33 +25,10 @@ function displayCart (){
                 </div>`
         })
     }
-
-    // let buttonDel = document.getElementsByClassName('btn-danger');
-    // for (let i = 0; i < buttonDel.length; i++){
-    //     let button = buttonDel[i]
-    //     button.addEventListener('click', function() {
-            
-    //         let selectedLocalStorage = localStorage.getItem('productsInCart');
-    //         selectedLocalStorage = JSON.parse(selectedLocalStorage);
-
-    //         Object.values(selectedLocalStorage).map(item => {
-    //             console.log(selectedLocalStorage)
-    //             if(item.quantity > 1 ){
-    //                 item.quantity -= 1;
-    //                 console.log(item.quantity)
-    //                 localStorage.setItem("productsInCart", JSON.stringify(selectedLocalStorage));
-    //             }else{
-    //                 localStorage.setItem("productsInCart", JSON.stringify(selectedLocalStorage));
-    //                 localStorage.removeItem('productsInCart')
-    //             }
-    //         })
-    //     })
-    // }
-    
 }
 
 function hideForm() {
-    if(!articleInCart){
+    if(articleInCart == ''){
         document.getElementById('formulaire').hidden = true;
         document.getElementById('total').hidden = true;
         document.getElementById('emptyCart').hidden = false;
@@ -74,15 +51,16 @@ function calculTotalCost(){
     document.getElementById('totalCost').innerHTML = total + '€'
 }
     
-function remove(){
-    for (let i = 0 ; articleInCart.length > i; i++){
-        articleInCart.filter(item => item[i]  !== [i])
-    }
+function remove(name){
+
+    let result = articleInCart.filter(item => item.name !== name)
+
+    console.log(result)
     
-    localStorage.setItem('cart', JSON.stringify(articleInCart))
+    localStorage.setItem('cart', JSON.stringify(result))
+    document.location.reload();
+
 }
-
-
 
 const myForm = document.getElementById('myForm');
 
