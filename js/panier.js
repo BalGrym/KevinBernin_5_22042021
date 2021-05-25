@@ -13,11 +13,11 @@ function displayCart (){
                         <div class="card-body">
                             <div class="d-flex row-md justify-content-between">
                                 <h5 class="card-title">Ours en peluche - ${item.name}</h5>
-                                <button type="button" class="btn btn-danger"  onclick="remove('${item.name}')">Supprimer</button>
+                                <button type="button" class="btn btn-danger"  onclick="remove('${item._id}')">Supprimer</button>
                             </div>
-                            <p class="card-text">Quantité : <input class="cart-quantity-input" type="number" value="${item.quantity}"></p>
+                            <p class="card-text cart-quantity-input">Quantité : ${item.quantity}</p>
                             <div class="d-flex flex-row">
-                                <p class="card-text me-4 cart-price">Prix Unitaire : ${item.price / 100}</p>
+                                <p class="card-text me-4 cart-price">Prix Unitaire : ${item.price / 100}<span> €</span></p>
                                 <p class="card-text">Prix Total : ${item.price * item.quantity / 100} €</p>
                             </div>
                         </div>
@@ -26,6 +26,7 @@ function displayCart (){
         })
     }
 }
+
 
 function hideForm() {
     if(articleInCart == ''){
@@ -45,15 +46,15 @@ function calculTotalCost(){
         var priceElement = cartItem.getElementsByClassName('cart-price')[0];
         var quantityElement = cartItem.getElementsByClassName('cart-quantity-input')[0];
         var price = parseFloat(priceElement.innerHTML.replace('Prix Unitaire : ', ''));
-        var quantity = quantityElement.value;
+        var quantity = parseFloat(quantityElement.innerHTML.replace('Quantité : ', ''));
         total = total + (price * quantity);
     }
     document.getElementById('totalCost').innerHTML = total + '€'
 }
     
-function remove(name){
+function remove(id){
 
-    let result = articleInCart.filter(item => item.name !== name)
+    let result = articleInCart.filter(item => item._id !== id)
 
     console.log(result)
     
@@ -65,7 +66,7 @@ function remove(name){
 const myForm = document.getElementById('myForm');
 
 myForm.addEventListener('submit', function(e) {
-    
+    e.preventDefault()
 
     //Recupère tout les ID qui se trouvent dans articleInCart 
     let products = articleInCart.map(product => product._id);
@@ -97,7 +98,6 @@ myForm.addEventListener('submit', function(e) {
 });
 
 function finalPage(text) {
-    console.log("salut")
     let getServerResponse = JSON.parse(text)
     let orderId = localStorage.setItem('orderId', getServerResponse.orderId)
     window.location = "/validation.html";

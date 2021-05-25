@@ -9,9 +9,9 @@ html, body {
     margin-bottom: 0!important;
 }
 
-main {
+/* main {
     min-height: 75%;
-}
+} */
 
 .wrapper {
     min-height: 100%;
@@ -28,9 +28,9 @@ main {
     flex-grow: 1!important;
 }
 
-.page-footer {
+/* .page-footer {
     margin-top: -90px;
-}
+} */
 
 
 

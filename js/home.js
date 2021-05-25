@@ -1,3 +1,10 @@
+const cartInit = localStorage.getItem('cart');
+const init = () => {
+    cartInit ? cartInit : localStorage.setItem('cart', JSON.stringify([]));
+};
+init();
+const cart = JSON.parse(localStorage.getItem('cart'));
+
 (async function() {
     const articles = await getArticles()
 
@@ -13,7 +20,7 @@ function getArticles(){
            return response.json()
         })
         .then(function(articles){
-            //console.log(articles)
+            console.log(articles)
             return articles
         })
         .catch(function(err){
