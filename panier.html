@@ -54,11 +54,11 @@
                             <div class="mb-3 d-flex ">
                                 <div class="me-3">
                                     <label for="firstName" class="form-label ">Prénom</label>
-                                    <input type="text" class="form-control" name="firstName" id="firstName" required>
+                                    <input type="text" class="form-control" name="firstName" id="firstName" pattern="^[a-zA-Z-]+(\s[a-zA-Z]+)?$"  maxlength="25" required>
                                 </div>
                                 <div>
                                     <label for="lastName" class="form-label">Nom</label>
-                                    <input type="text" class="form-control" name="lastName" id="lastName" required>
+                                    <input type="text" class="form-control" name="lastName" id="lastName" pattern="^[a-zA-Z-]+(\s[a-zA-Z]+)?$"  maxlength="25" required>
                                 </div>
                             </div>
 
